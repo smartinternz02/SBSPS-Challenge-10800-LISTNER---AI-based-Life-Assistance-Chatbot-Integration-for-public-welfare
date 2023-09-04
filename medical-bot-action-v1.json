@@ -1,0 +1,5671 @@
+{
+  "name": "Medical Bot-action",
+  "type": "action",
+  "counts": {
+    "actions": 34,
+    "intents": 31,
+    "entities": 43,
+    "data_types": 0,
+    "collections": 0,
+    "global_variables": 0
+  },
+  "status": "Available",
+  "language": "en",
+  "skill_id": "f0754269-f804-4bd8-aec8-9272ed7a4365",
+  "workspace": {
+    "actions": [
+      {
+        "steps": [
+          {
+            "step": "digression_failure",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "Sorry I couldn't confirm if you wanted to return to previous topic, let me connect to an agent."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "digression_failure",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Failed to confirm topic return"
+                }
+              ]
+            },
+            "next_step": "step_001"
+          },
+          {
+            "step": "step_001",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I'm afraid I don't understand. I can connect you to an agent."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_001",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Step validation failed"
+                }
+              ]
+            },
+            "next_step": "step_002"
+          },
+          {
+            "step": "step_002",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "Sorry I couldn't assist you. I will connect you to an agent right away."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_002",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Agent requested"
+                }
+              ]
+            },
+            "next_step": "step_003"
+          },
+          {
+            "step": "step_003",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I am afraid I do not understand what you are asking, let me connect you to an agent."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_003",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "No action matches"
+                }
+              ]
+            },
+            "next_step": "step_004"
+          },
+          {
+            "step": "step_004",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "It seems this conversation would be best managed by a human agent. Let me connect you to one of our agents."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_004",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Danger word detected"
+                }
+              ]
+            },
+            "next_step": "step_005"
+          },
+          {
+            "step": "step_005",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "It seems this conversation would be best managed by a human agent. Let me connect you to one of our agents."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_005",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Profanity detected"
+                }
+              ]
+            }
+          }
+        ],
+        "title": "Fallback",
+        "action": "fallback",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "fallback_connect_to_agent"
+        },
+        "variables": [
+          {
+            "title": "Topic return failed",
+            "variable": "digression_failure",
+            "data_type": "any"
+          },
+          {
+            "title": "I'm afraid I don't understand. I can connect you to an agent.",
+            "variable": "step_001",
+            "data_type": "any"
+          },
+          {
+            "title": "Sorry I couldn't assist you. I will connect you to an agent righ",
+            "variable": "step_002",
+            "data_type": "any"
+          },
+          {
+            "title": "I am afraid I do not understand what you are asking, let me conn",
+            "variable": "step_003",
+            "data_type": "any"
+          },
+          {
+            "title": "It seems this conversation would be best managed",
+            "variable": "step_004",
+            "data_type": "any"
+          },
+          {
+            "title": "Profanity - It seems this conversation",
+            "variable": "step_005",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "run_always",
+        "disambiguation_opt_out": true
+      },
+      {
+        "steps": [
+          {
+            "step": "danger_word_detected",
+            "title": "Connect to agent",
+            "handlers": [],
+            "resolver": {
+              "type": "fallback"
+            },
+            "variable": "danger_word_detected_variable",
+            "condition": {
+              "entity": "danger_words"
+            },
+            "next_step": "profanity_detected"
+          },
+          {
+            "step": "profanity_detected",
+            "title": "Show warning",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Please use appropriate language when interacting with the assistant."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "max_hits",
+                "handler": "max_hits_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "max_hits": 2,
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "profanity_detected_variable",
+            "condition": {
+              "entity": "profane_words"
+            }
+          }
+        ],
+        "title": "Trigger word detected",
+        "action": "run_always",
+        "boosts": [],
+        "handlers": [],
+        "variables": [
+          {
+            "title": "Profanity detected",
+            "variable": "danger_word_detected_variable",
+            "data_type": "any"
+          },
+          {
+            "title": "Profane word detected",
+            "variable": "profanity_detected_variable",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "anything_else"
+      },
+      {
+        "steps": [
+          {
+            "step": "step_001",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I'm afraid I don't understand. Please rephrase your question."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_001",
+            "condition": {
+              "lte": [
+                {
+                  "system_variable": "no_action_matches_count"
+                },
+                {
+                  "scalar": 3
+                }
+              ]
+            },
+            "next_step": "step_002"
+          },
+          {
+            "step": "step_002",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": ""
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action_and_end",
+              "invoke_action": {
+                "action": "fallback",
+                "policy": "default",
+                "parameters": null,
+                "result_variable": "step_002_result_1"
+              }
+            },
+            "variable": "step_002",
+            "condition": {
+              "gt": [
+                {
+                  "system_variable": "no_action_matches_count"
+                },
+                {
+                  "scalar": 3
+                }
+              ]
+            }
+          }
+        ],
+        "title": "No action matches",
+        "action": "anything_else",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "expression": "anything_else"
+        },
+        "variables": [
+          {
+            "title": "I am afraid I do not understand what you are asking, please re-p",
+            "variable": "step_001",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_002",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_002_result_1",
+            "data_type": "any"
+          }
+        ],
+        "disambiguation_opt_out": true
+      },
+      {
+        "steps": [
+          {
+            "step": "step_001",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "Welcome, how can I assist you?"
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_001"
+          }
+        ],
+        "title": "Greet customer",
+        "action": "welcome",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "expression": "welcome"
+        },
+        "variables": [
+          {
+            "variable": "step_001",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "action_49050",
+        "disambiguation_opt_out": true
+      },
+      {
+        "steps": [
+          {
+            "step": "step_963",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Hi im the medical siri"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_963"
+          }
+        ],
+        "title": "Hi",
+        "action": "action_16969",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_16969_intent_15566"
+        },
+        "variables": [
+          {
+            "title": "Hi im the medical siri",
+            "variable": "step_963",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_27128",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_597",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Mental health includes our emotional, psychological, and social well-being. It affects how we think, feel, and act. It also helps determine how we handle stress, relate to others, and make healthy choices.1 Mental health is important at every stage of life, from childhood and adolescence through adulthood."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_597",
+            "next_step": "step_270"
+          },
+          {
+            "step": "step_270",
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_270"
+          }
+        ],
+        "title": "What is Mental Health?",
+        "action": "action_23571",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_23571_intent_15681"
+        },
+        "variables": [
+          {
+            "title": "No response",
+            "variable": "step_270",
+            "data_type": "any"
+          },
+          {
+            "title": "Mental health includes our emotional, psychological, and social ",
+            "variable": "step_597",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_16969",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_477",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Mental and physical health are equally important components of overall health.  For example, depression increases the risk for many types of physical health problems, particularly long-lasting conditions like [diabetes](https://www.cdc.gov/diabetes/managing/mental-health.html), [heart disease](https://www.cdc.gov/heartdisease/mentalhealth.htm), and stroke. Similarly,"
+                          },
+                          {
+                            "scalar": " the presence of chronic conditions can increase the risk for mental illness.2"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_477"
+          }
+        ],
+        "title": "Why is mental health important for overall health?",
+        "action": "action_12260",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_12260_intent_25552"
+        },
+        "variables": [
+          {
+            "title": "Mental and physical health are equally important components of o",
+            "variable": "step_477",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_23571",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_468",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "There is no single cause for mental illness. A number of factors can contribute to risk for mental illness, such as\n\n\n  - [Adverse Childhood Experiences](https://www.cdc.gov/violenceprevention/aces/index.html), such as trauma or a history of abuse (for example, child abuse, sexual assault, witnessing violence, etc.)\n  - Experiences related to other ongoing (chronic) medical conditions,"
+                          },
+                          {
+                            "scalar": " such as cancer or diabetes\n  - Biological factors or chemical imbalances in the brain\n  - Use of alcohol or drugs\n  - Having feelings of loneliness or isolation"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_468"
+          }
+        ],
+        "title": "What causes mental illness?",
+        "action": "action_31687",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_31687_intent_46596"
+        },
+        "variables": [
+          {
+            "title": "There is no single cause for mental illness. A number of factors",
+            "variable": "step_468",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_12260",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_503",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "To manage stress and anxiety, it's important to practice relaxation techniques such as deep breathing, meditation, and progressive muscle relaxation. Additionally, regular exercise, a balanced diet, and getting enough sleep can also help."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_503"
+          }
+        ],
+        "title": "How can I manage stress and anxiety in my daily life?",
+        "action": "action_44976",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_44976_intent_37166"
+        },
+        "variables": [
+          {
+            "title": "To manage stress and anxiety, it's important to practice relaxat",
+            "variable": "step_503",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_31687",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_285",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Building self-esteem and self-confidence takes time and effort. Start by identifying your strengths and setting achievable goals. Challenge negative self-talk and practice self-compassion. Surround yourself with supportive people who lift you up."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_285"
+          }
+        ],
+        "title": "How can I build self-esteem and self-confidence?",
+        "action": "action_42904",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_42904_intent_22462"
+        },
+        "variables": [
+          {
+            "title": "Building self-esteem and self-confidence takes time and effort. ",
+            "variable": "step_285",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_12594",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_177",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "When you're feeling down, it's important to engage in activities that bring you joy and relaxation. Consider talking to a friend or therapist about your feelings. Sometimes, seeking professional help is the best option."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_177"
+          }
+        ],
+        "title": "I've been feeling down lately. What can I do to improve my mood?",
+        "action": "action_12594",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_12594_intent_46632"
+        },
+        "variables": [
+          {
+            "title": "When you're feeling down, it's important to engage in activities",
+            "variable": "step_177",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_44976",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_378",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Coping with loneliness involves reaching out to friends and family for social support, joining clubs or groups with similar interests, and practicing self-care. It's essential to engage in activities that bring you joy and fulfillment."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_378"
+          }
+        ],
+        "title": "What are some coping strategies for dealing with loneliness?",
+        "action": "action_8347",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_8347_intent_45059"
+        },
+        "variables": [
+          {
+            "title": "Coping with loneliness involves reaching out to friends and fami",
+            "variable": "step_378",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_42904",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_692",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "It's crucial to take your feelings seriously. Reach out to a mental health professional for an assessment and diagnosis. In the meantime, stay connected with loved ones, maintain a routine, and prioritize self-care."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_692"
+          }
+        ],
+        "title": "I think I might be experiencing symptoms of depression. What sho",
+        "action": "action_26942",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_26942_intent_12400"
+        },
+        "variables": [
+          {
+            "title": "It's crucial to take your feelings seriously. Reach out to a men",
+            "variable": "step_692",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_8347",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_948",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Time management can help reduce overwhelm. Break tasks into smaller, manageable steps, prioritize your to-do list, and use tools like calendars or apps to stay organized. Don't forget to schedule breaks and relaxation time."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_948"
+          }
+        ],
+        "title": "How can I manage my time and reduce feelings of overwhelm?",
+        "action": "action_20969",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_20969_intent_41712"
+        },
+        "variables": [
+          {
+            "title": "Time management can help reduce overwhelm. Break tasks into smal",
+            "variable": "step_948",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_26942",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_468",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Effective communication involves active listening, empathy, and assertiveness. Work on your listening skills, express your thoughts and feelings honestly but respectfully, and seek feedback to enhance your relationships."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_468"
+          }
+        ],
+        "title": "What strategies can help me improve my communication and relatio",
+        "action": "action_29920",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_29920_intent_9257"
+        },
+        "variables": [
+          {
+            "title": "Effective communication involves active listening, empathy, and ",
+            "variable": "step_468",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_20969",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_350",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Setting boundaries is essential for your well-being. Clearly communicate your limits to others, be consistent in enforcing them, and remember that it's okay to say \"no\" when necessary. Prioritize self-care and self-respect."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_350"
+          }
+        ],
+        "title": "How can I set boundaries in my personal and professional life?",
+        "action": "action_27479",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_27479_intent_17486"
+        },
+        "variables": [
+          {
+            "title": "Setting boundaries is essential for your well-being. Clearly com",
+            "variable": "step_350",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_29920",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_737",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Supporting someone with mental health challenges requires empathy and patience. Listen without judgment, offer your assistance, and encourage them to seek professional help when needed. Educate yourself about their condition to better understand their experience."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_737"
+          }
+        ],
+        "title": "How can I support a friend or family member who is struggling wi",
+        "action": "action_43710",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_43710_intent_16485"
+        },
+        "variables": [
+          {
+            "title": "Supporting someone with mental health challenges requires empath",
+            "variable": "step_737",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_11601",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_626",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "To improve sleep quality, establish a consistent sleep schedule, create a relaxing bedtime routine, and make your sleep environment comfortable and dark. Limit caffeine and screen time before bedtime, and consider talking to a healthcare professional if sleep problems persist."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_626"
+          }
+        ],
+        "title": "I've been having trouble sleeping. What are some strategies for ",
+        "action": "action_17874",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_17874_intent_9710"
+        },
+        "variables": [
+          {
+            "title": "To improve sleep quality, establish a consistent sleep schedule,",
+            "variable": "step_626",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_43710",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_816",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Building resilience involves developing coping skills and a growth mindset. Embrace challenges as opportunities for growth, maintain a strong support system, and practice self-compassion. Seek therapy or counseling if needed"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_816"
+          }
+        ],
+        "title": "How can I build resilience and bounce back from setbacks in life",
+        "action": "action_46319",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_46319_intent_44328"
+        },
+        "variables": [
+          {
+            "title": "Building resilience involves developing coping skills and a grow",
+            "variable": "step_816",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_6411",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_808",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "There are several mobile apps and online resources that offer mental health support, such as meditation apps like Headspace or Calm, mood tracking apps like MoodTools, and crisis hotlines like the National Suicide Prevention Lifeline."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_808"
+          }
+        ],
+        "title": "Can you recommend any mobile apps or resources for mental health",
+        "action": "action_35863",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_35863_intent_34686"
+        },
+        "variables": [
+          {
+            "title": "There are several mobile apps and online resources that offer me",
+            "variable": "step_808",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_46319",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_759",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Let's reschedule your appointment. I'll need to authenticate you first. What's the **email address** associated with the appointment?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "context": {
+              "variables": []
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "Please enter a valid email address."
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_1793",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_759",
+            "next_step": "step_888"
+          },
+          {
+            "step": "step_888",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Thanks. I've found you in our system!\n\n<br />\n\n\n\nYou currently have an appointment scheduled for  **"
+                          },
+                          {
+                            "system_variable": "current_date"
+                          },
+                          {
+                            "scalar": "** at **"
+                          },
+                          {
+                            "system_variable": "current_time"
+                          },
+                          {
+                            "scalar": "**.\n\n<br />\n\n\n\nLet's get your appointment updated.\n\n<br />\n\n\n\nHow long would you like to meet for?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "15 minutes",
+                      "value": {
+                        "input": {
+                          "text": "15 minutes"
+                        }
+                      }
+                    },
+                    {
+                      "label": "30 minutes",
+                      "value": {
+                        "input": {
+                          "text": "30 minutes"
+                        }
+                      }
+                    },
+                    {
+                      "label": "1 hour",
+                      "value": {
+                        "input": {
+                          "text": "1 hour"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "context": {
+              "variables": []
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "Please select from one of the options below."
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_34247",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_888",
+            "next_step": "step_226"
+          },
+          {
+            "step": "step_226",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Our offices are open weekly from Mondays to Thursdays.\n\n<br />\n\n\n\nWhich **date** works best for you?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "response_type": "date"
+                }
+              ]
+            },
+            "context": {
+              "variables": []
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I'm sorry, I did not catch that, please enter the date of your appointment in MMDDYYYY format."
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-date",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_226",
+            "next_step": "step_184"
+          },
+          {
+            "step": "step_184",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Unfortunately, our offices are closed from Fridays to Sundays.\n\n<br />\n\n\n\nPlease try again."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "replay",
+              "clear": [
+                {
+                  "variable": "step_226"
+                }
+              ]
+            },
+            "variable": "step_184",
+            "condition": {
+              "in": [
+                {
+                  "subtype": "day_of_the_week",
+                  "variable": "step_226"
+                },
+                {
+                  "collection": [
+                    {
+                      "scalar": 5
+                    },
+                    {
+                      "scalar": 6
+                    },
+                    {
+                      "scalar": 7
+                    }
+                  ]
+                }
+              ]
+            },
+            "next_step": "step_143"
+          },
+          {
+            "step": "step_143",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "What **time** works best for you on "
+                          },
+                          {
+                            "variable": "step_226"
+                          },
+                          {
+                            "scalar": "?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "context": {
+              "variables": []
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I'm sorry, I did not catch that, please enter a valid meeting duration."
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-time",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_143",
+            "condition": {
+              "in": [
+                {
+                  "subtype": "day_of_the_week",
+                  "variable": "step_226"
+                },
+                {
+                  "collection": [
+                    {
+                      "scalar": 1
+                    },
+                    {
+                      "scalar": 2
+                    },
+                    {
+                      "scalar": 3
+                    },
+                    {
+                      "scalar": 4
+                    }
+                  ]
+                }
+              ]
+            },
+            "next_step": "step_846"
+          },
+          {
+            "step": "step_846",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Great. Just to confirm, you'd like to book an appointment on **"
+                          },
+                          {
+                            "variable": "step_226"
+                          },
+                          {
+                            "scalar": "** at **"
+                          },
+                          {
+                            "variable": "step_143"
+                          },
+                          {
+                            "scalar": "** for **"
+                          },
+                          {
+                            "variable": "step_888"
+                          },
+                          {
+                            "scalar": "**.\n\n<br />\n\n\n\nIs that correct?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Yes that's right",
+                      "value": {
+                        "input": {
+                          "text": "Yes that's right"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Not quite",
+                      "value": {
+                        "input": {
+                          "text": "Not quite"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "context": {
+              "variables": []
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_2263",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_846",
+            "next_step": "step_283"
+          },
+          {
+            "step": "step_283",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Sorry about that. Let's try again."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "replay",
+              "clear": [
+                {
+                  "variable": "step_888"
+                },
+                {
+                  "variable": "step_226"
+                },
+                {
+                  "variable": "step_143"
+                },
+                {
+                  "variable": "step_846"
+                }
+              ]
+            },
+            "variable": "step_283",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_846"
+                },
+                {
+                  "value": "Not quite",
+                  "from_entity": "entity_2263"
+                }
+              ]
+            },
+            "next_step": "step_671"
+          },
+          {
+            "step": "step_671",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "You're all set. Your appointment has been rescheduled, and I've sent the calendar invite to your email at "
+                          },
+                          {
+                            "variable": "step_759"
+                          },
+                          {
+                            "scalar": "\n\n<br />\n\n\n\nEnjoy the rest of your day!"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_671",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_846"
+                },
+                {
+                  "value": "Yes that's right",
+                  "from_entity": "entity_2263"
+                }
+              ]
+            }
+          }
+        ],
+        "title": "Reschedule an appointment",
+        "action": "action_27128",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_1205_intent_46423"
+        },
+        "variables": [
+          {
+            "title": "What **time** works best for you on {variable}?",
+            "variable": "step_143",
+            "data_type": "time"
+          },
+          {
+            "title": "Alright. Confirming you'd like to cancel your appointment on **{",
+            "variable": "step_165",
+            "data_type": "yes_no"
+          },
+          {
+            "title": "Not a problem!",
+            "variable": "step_180",
+            "data_type": "any"
+          },
+          {
+            "title": "Unfortunately, our offices are closed from Fridays to Sundays. <",
+            "variable": "step_184",
+            "data_type": "any"
+          },
+          {
+            "title": "Your appointment has been cancelled. <br /> Have a nice day!",
+            "variable": "step_190",
+            "data_type": "any"
+          },
+          {
+            "title": "Our offices are open weekly from Mondays to Thursdays. <br /> Wh",
+            "variable": "step_226",
+            "data_type": "date"
+          },
+          {
+            "title": "No response",
+            "variable": "step_237",
+            "data_type": "any"
+          },
+          {
+            "title": "Sorry about that. Let's try again.",
+            "variable": "step_283",
+            "data_type": "any"
+          },
+          {
+            "title": "Alright. What change would you like to make?",
+            "variable": "step_478",
+            "data_type": "any"
+          },
+          {
+            "title": "You're all set. Your appointment has been rescheduled, and I've ",
+            "variable": "step_671",
+            "data_type": "any"
+          },
+          {
+            "title": "Let's reschedule your appointment. I'll need to authenticate you",
+            "variable": "step_759",
+            "data_type": "any"
+          },
+          {
+            "title": "Great. Just to confirm, you'd like to book an appointment on **{",
+            "variable": "step_846",
+            "data_type": "any"
+          },
+          {
+            "title": "Thanks. I've found you in our system! <br /> You currently have ",
+            "variable": "step_888",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "action_1205",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_699",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Mindfulness techniques, such as meditation and deep breathing exercises, can help you stay present and reduce stress. You can also practice mindfulness in everyday activities by focusing on the sensations and experiences of the moment."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_699"
+          }
+        ],
+        "title": "What are some mindfulness techniques I can practice for mental w",
+        "action": "action_34498",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_34498_intent_41109"
+        },
+        "variables": [
+          {
+            "title": "Mindfulness techniques, such as meditation and deep breathing ex",
+            "variable": "step_699",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_27479",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_795",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Managing emotions in challenging situations involves self-awareness and regulation. Learn to recognize your emotions, practice deep breathing, and consider cognitive-behavioral techniques to reframe negative thought patterns."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_795"
+          }
+        ],
+        "title": "How can I better manage my emotions during challenging situation",
+        "action": "action_42220",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_42220_intent_38635"
+        },
+        "variables": [
+          {
+            "title": "Managing emotions in challenging situations involves self-awaren",
+            "variable": "step_795",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_17874",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_448",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Prioritizing self-care requires intentional planning. Schedule regular self-care activities, delegate tasks when possible, and learn to say no to excessive commitments. Remember that self-care is essential for your overall well-being."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_448"
+          }
+        ],
+        "title": "How can I prioritize self-care in my busy life?",
+        "action": "action_49050",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_49050_intent_27399"
+        },
+        "variables": [
+          {
+            "title": "Prioritizing self-care requires intentional planning. Schedule r",
+            "variable": "step_448",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_35863",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_759",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Let's confirm your appointment. I'll need to authenticate you first. What's the **email address** associated with the appointment?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "context": {
+              "variables": []
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "Please enter a valid email address."
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_43296",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_759",
+            "next_step": "step_329"
+          },
+          {
+            "step": "step_329",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Thanks. I've found you in our system!\n\n<br />\n\n\n\nYou currently have an appointment scheduled for  **"
+                          },
+                          {
+                            "system_variable": "current_date"
+                          },
+                          {
+                            "scalar": "** at **"
+                          },
+                          {
+                            "system_variable": "current_time"
+                          },
+                          {
+                            "scalar": "**.\n\n<br />\n\n\n\nWould you like to **confirm** this appointment?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Yes, confirm this appointment",
+                      "value": {
+                        "input": {
+                          "text": "Yes, confirm this appointment"
+                        }
+                      }
+                    },
+                    {
+                      "label": "No, I'd like to make a modification",
+                      "value": {
+                        "input": {
+                          "text": "No, I'd like to make a modification"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_40009",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_329",
+            "next_step": "step_200"
+          },
+          {
+            "step": "step_200",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Great! You're all set. We'll see you at your upcoming appointment!"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_200",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_329"
+                },
+                {
+                  "value": "Yes, confirm this appointment",
+                  "from_entity": "entity_40009"
+                }
+              ]
+            },
+            "next_step": "step_478"
+          },
+          {
+            "step": "step_478",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "What change would you like to make?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Cancel this appointment",
+                      "value": {
+                        "input": {
+                          "text": "Cancel this appointment"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Change this appointment",
+                      "value": {
+                        "input": {
+                          "text": "Change this appointment"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Please select from one of the change options below:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_19289",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_478",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_329"
+                },
+                {
+                  "value": "No, I'd like to make a modification",
+                  "from_entity": "entity_40009"
+                }
+              ]
+            },
+            "next_step": "step_165"
+          },
+          {
+            "step": "step_165",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Sounds good. Confirming you'd like to cancel your appointment on **"
+                          },
+                          {
+                            "system_variable": "current_date"
+                          },
+                          {
+                            "scalar": "** at **"
+                          },
+                          {
+                            "system_variable": "current_time"
+                          },
+                          {
+                            "scalar": "**?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Yes",
+                      "value": {
+                        "input": {
+                          "text": "Yes"
+                        }
+                      }
+                    },
+                    {
+                      "label": "No",
+                      "value": {
+                        "input": {
+                          "text": "No"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I'm sorry, I did not catch that, please restate your response."
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-yes-no",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_165",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_478"
+                },
+                {
+                  "value": "Cancel this appointment",
+                  "from_entity": "entity_19289"
+                }
+              ]
+            },
+            "next_step": "step_190"
+          },
+          {
+            "step": "step_190",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Your appointment has been cancelled.\n\n<br />\n\n\n\nHave a nice day!"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_190",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_165"
+                },
+                {
+                  "scalar": "yes"
+                }
+              ]
+            },
+            "next_step": "step_180"
+          },
+          {
+            "step": "step_180",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Not a problem!"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "replay",
+              "clear": [
+                {
+                  "variable": "step_478"
+                },
+                {
+                  "variable": "step_165"
+                },
+                {
+                  "variable": "step_190"
+                }
+              ]
+            },
+            "variable": "step_180",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_165"
+                },
+                {
+                  "scalar": "no"
+                }
+              ]
+            },
+            "next_step": "step_888"
+          },
+          {
+            "step": "step_888",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Alright, let's get your appointment updated.\n\n<br />\n\n\n\n**How** **long** would you like to meet for?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "15 minutes",
+                      "value": {
+                        "input": {
+                          "text": "15 minutes"
+                        }
+                      }
+                    },
+                    {
+                      "label": "30 minutes",
+                      "value": {
+                        "input": {
+                          "text": "30 minutes"
+                        }
+                      }
+                    },
+                    {
+                      "label": "1 hour",
+                      "value": {
+                        "input": {
+                          "text": "1 hour"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "context": {
+              "variables": []
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "Please select from one of the options below."
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_19764",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_888",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_478"
+                },
+                {
+                  "value": "Change this appointment",
+                  "from_entity": "entity_19289"
+                }
+              ]
+            },
+            "next_step": "step_226"
+          },
+          {
+            "step": "step_226",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "What **day** works best for you?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "response_type": "date"
+                }
+              ]
+            },
+            "context": {
+              "variables": []
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I'm sorry, I did not catch that, please enter the date of your appointment in MMDDYYYY format."
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-date",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_226",
+            "next_step": "step_143"
+          },
+          {
+            "step": "step_143",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "What **time** works best for you on "
+                          },
+                          {
+                            "variable": "step_226"
+                          },
+                          {
+                            "scalar": "?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "context": {
+              "variables": []
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I'm sorry, I did not catch that, please enter a valid meeting duration."
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-time",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_143",
+            "next_step": "step_846"
+          },
+          {
+            "step": "step_846",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Great. Just to confirm, you'd like to book an appointment on "
+                          },
+                          {
+                            "variable": "step_226"
+                          },
+                          {
+                            "scalar": " at "
+                          },
+                          {
+                            "variable": "step_143"
+                          },
+                          {
+                            "scalar": " for "
+                          },
+                          {
+                            "variable": "step_888"
+                          },
+                          {
+                            "scalar": ".\n\n<br />\n\n\n\nIs that correct?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Yes that's right",
+                      "value": {
+                        "input": {
+                          "text": "Yes that's right"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Not quite",
+                      "value": {
+                        "input": {
+                          "text": "Not quite"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "context": {
+              "variables": []
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_21793",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_846",
+            "next_step": "step_283"
+          },
+          {
+            "step": "step_283",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Sorry about that. Let's try again."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "replay",
+              "clear": [
+                {
+                  "variable": "step_888"
+                },
+                {
+                  "variable": "step_226"
+                },
+                {
+                  "variable": "step_143"
+                },
+                {
+                  "variable": "step_846"
+                }
+              ]
+            },
+            "variable": "step_283",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_846"
+                },
+                {
+                  "value": "Not quite",
+                  "from_entity": "entity_21793"
+                }
+              ]
+            },
+            "next_step": "step_671"
+          },
+          {
+            "step": "step_671",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "You're all set. I've sent the calendar invite to your email at "
+                          },
+                          {
+                            "variable": "step_759"
+                          },
+                          {
+                            "scalar": "\n\n<br />\n\n\n\nEnjoy the rest of your day!"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_671",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_846"
+                },
+                {
+                  "value": "Yes that's right",
+                  "from_entity": "entity_21793"
+                }
+              ]
+            }
+          }
+        ],
+        "title": "Confirm an appointment",
+        "action": "action_1205",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_1205_intent_22624"
+        },
+        "variables": [
+          {
+            "title": "What time works best for you on {variable}?",
+            "variable": "step_143",
+            "data_type": "time"
+          },
+          {
+            "title": "Alright. Confirming you'd like to cancel your appointment on **{",
+            "variable": "step_165",
+            "data_type": "yes_no"
+          },
+          {
+            "title": "Not a problem!",
+            "variable": "step_180",
+            "data_type": "any"
+          },
+          {
+            "title": "Your appointment has been cancelled. <br /> Have a nice day!",
+            "variable": "step_190",
+            "data_type": "any"
+          },
+          {
+            "title": "Great! You're all set. We'll see you at your upcoming appointmen",
+            "variable": "step_200",
+            "data_type": "any"
+          },
+          {
+            "title": "What day works best for you?",
+            "variable": "step_226",
+            "data_type": "date"
+          },
+          {
+            "title": "No response",
+            "variable": "step_237",
+            "data_type": "any"
+          },
+          {
+            "title": "Sorry about that. Let's try again.",
+            "variable": "step_283",
+            "data_type": "any"
+          },
+          {
+            "title": "Thanks. I've found you in our system! <br /> You currently have ",
+            "variable": "step_329",
+            "data_type": "any"
+          },
+          {
+            "title": "Alright. What change would you like to make?",
+            "variable": "step_478",
+            "data_type": "any"
+          },
+          {
+            "title": "You're all set. I've sent the calendar invite to your email at {",
+            "variable": "step_671",
+            "data_type": "any"
+          },
+          {
+            "title": "Let's confirm your appointment. I'll need to authenticate you fi",
+            "variable": "step_759",
+            "data_type": "any"
+          },
+          {
+            "title": "Great. Just to confirm, you'd like to book an appointment on {va",
+            "variable": "step_846",
+            "data_type": "any"
+          },
+          {
+            "title": "Alright, let's get your appointment updated. <br /> **How** **lo",
+            "variable": "step_888",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "action_27804",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_272",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "To get started, please enter your **email address.**"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "context": {
+              "variables": []
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "Please enter a valid email address."
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_22093",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_272",
+            "next_step": "step_523"
+          },
+          {
+            "step": "step_523",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Thanks! Next, please enter your **four-digit authentication PIN.**"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "Please enter a valid four-digit PIN."
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_15134",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_523",
+            "next_step": "step_561"
+          },
+          {
+            "step": "step_561",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Lastly, please choose one of the **security** **questions** to answer below."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "My mother's maiden name",
+                      "value": {
+                        "input": {
+                          "text": "My mother's maiden name"
+                        }
+                      }
+                    },
+                    {
+                      "label": "The street I grew up on",
+                      "value": {
+                        "input": {
+                          "text": "The street I grew up on"
+                        }
+                      }
+                    },
+                    {
+                      "label": "The first concert I went to",
+                      "value": {
+                        "input": {
+                          "text": "The first concert I went to"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "context": {
+              "variables": []
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Please select a valid security question."
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_18170",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_561",
+            "next_step": "step_647"
+          },
+          {
+            "step": "step_647",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Please enter your response for the following security question: **"
+                          },
+                          {
+                            "variable": "step_561"
+                          },
+                          {
+                            "scalar": "**"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "question": {
+              "free_text": true,
+              "only_populate_when_prompted": true
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_647",
+            "condition": {
+              "in": [
+                {
+                  "variable": "step_561"
+                },
+                {
+                  "collection": [
+                    {
+                      "value": "My mother's maiden name",
+                      "from_entity": "entity_18170"
+                    },
+                    {
+                      "value": "The first concert I went to",
+                      "from_entity": "entity_18170"
+                    },
+                    {
+                      "value": "The street I grew up on",
+                      "from_entity": "entity_18170"
+                    }
+                  ]
+                }
+              ]
+            },
+            "next_step": "step_911"
+          },
+          {
+            "step": "step_911",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Great news! We found you in our system. Redirecting you now..."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_911",
+            "condition": {
+              "exists": {
+                "variable": "step_647"
+              }
+            }
+          }
+        ],
+        "title": "Authenticate a user",
+        "action": "action_27804",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_27804_intent_18035"
+        },
+        "variables": [
+          {
+            "title": "To get started, please enter your **email address.**",
+            "variable": "step_272",
+            "data_type": "any"
+          },
+          {
+            "title": "Thanks! Next, please enter your **four-digit authentication PIN.",
+            "variable": "step_523",
+            "data_type": "any"
+          },
+          {
+            "title": "Lastly, please choose one of the **security** **questions** to a",
+            "variable": "step_561",
+            "data_type": "any"
+          },
+          {
+            "title": "Please enter your response for the following security question: ",
+            "variable": "step_647",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_829_result_1",
+            "data_type": "any"
+          },
+          {
+            "title": "Great news! We found you in our system. Redirecting you now...",
+            "variable": "step_911",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "action_36338",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_941",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "If you're in crisis or experiencing thoughts of self-harm, please seek immediate help. Contact a crisis hotline, reach out to a trusted friend or family member, or go to the nearest emergency room. Your safety is the top priority."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_941"
+          }
+        ],
+        "title": "What should I do if I'm in crisis or having thoughts of self-har",
+        "action": "action_35864",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_35864_intent_4458"
+        },
+        "variables": [
+          {
+            "title": "If you're in crisis or experiencing thoughts of self-harm, pleas",
+            "variable": "step_941",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_34498",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_373",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Overcoming addiction often requires professional help. Reach out to addiction specialists or support groups. Develop a relapse prevention plan, seek social support, and consider therapy or rehabilitation programs."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_373"
+          }
+        ],
+        "title": "What are some effective strategies for overcoming addiction or s",
+        "action": "action_6411",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_6411_intent_34792"
+        },
+        "variables": [
+          {
+            "title": "Overcoming addiction often requires professional help. Reach out",
+            "variable": "step_373",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_42220",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_294",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "You're welcome! Let me know if I can help with anything else."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_294"
+          }
+        ],
+        "title": "Thank you!",
+        "action": "action_36338",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_36338_intent_10557"
+        },
+        "variables": [
+          {
+            "title": "You're welcome! Let me know if I can help with anything else.",
+            "variable": "step_294",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "action_3898",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_481",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "I can do a whole lot of things, from answering your most common questions to connecting you to a live agent.\n\n<br />\n\n\n\nTry asking me a question and see!"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_481"
+          }
+        ],
+        "title": "What can you do?",
+        "action": "action_3898",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_3898_intent_14987"
+        },
+        "variables": [
+          {
+            "title": "I can do a whole lot of things, from answering your most common ",
+            "variable": "step_481",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "action_23980",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_705",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Does talking to you count?\n\n<br />\n\n\n\nKeep asking me more questions!"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_705"
+          }
+        ],
+        "title": "Hobbies",
+        "action": "action_23980",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_23980_intent_28809"
+        },
+        "variables": [
+          {
+            "title": "Does talking to you count? <br /> Keep asking me more questions!",
+            "variable": "step_705",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "action_27830",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_732",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "I can get you that information right away! Where are you based?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "North America",
+                      "value": {
+                        "input": {
+                          "text": "North America"
+                        }
+                      }
+                    },
+                    {
+                      "label": "South America",
+                      "value": {
+                        "input": {
+                          "text": "South America"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Europe",
+                      "value": {
+                        "input": {
+                          "text": "Europe"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Asia",
+                      "value": {
+                        "input": {
+                          "text": "Asia"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Africa",
+                      "value": {
+                        "input": {
+                          "text": "Africa"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Australia",
+                      "value": {
+                        "input": {
+                          "text": "Australia"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Please select a region from the options below:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_12835",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_732",
+            "next_step": "step_578"
+          },
+          {
+            "step": "step_578",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "The best way to contact us in "
+                          },
+                          {
+                            "variable": "step_732"
+                          },
+                          {
+                            "scalar": " is by calling **1-800-000-000.**"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_578",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_732"
+                },
+                {
+                  "value": "North America",
+                  "from_entity": "entity_12835"
+                }
+              ]
+            },
+            "next_step": "step_505"
+          },
+          {
+            "step": "step_505",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "The best way to contact us in "
+                          },
+                          {
+                            "variable": "step_732"
+                          },
+                          {
+                            "scalar": " is by emailing us at [**ourshop@shop.com**](mailto:ourshop@shop.com)"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_505",
+            "condition": {
+              "or": [
+                {
+                  "eq": [
+                    {
+                      "variable": "step_732"
+                    },
+                    {
+                      "value": "South America",
+                      "from_entity": "entity_12835"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_732"
+                    },
+                    {
+                      "value": "Europe",
+                      "from_entity": "entity_12835"
+                    }
+                  ]
+                }
+              ]
+            },
+            "next_step": "step_271"
+          },
+          {
+            "step": "step_271",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "The best way to contact us from "
+                          },
+                          {
+                            "variable": "step_732"
+                          },
+                          {
+                            "scalar": " is by calling our global toll-free number at **+1 (833) 000-000.**"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_271",
+            "condition": {
+              "or": [
+                {
+                  "eq": [
+                    {
+                      "variable": "step_732"
+                    },
+                    {
+                      "value": "Asia",
+                      "from_entity": "entity_12835"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_732"
+                    },
+                    {
+                      "value": "Africa",
+                      "from_entity": "entity_12835"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_732"
+                    },
+                    {
+                      "value": "Australia",
+                      "from_entity": "entity_12835"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "title": "Request contact information",
+        "action": "action_27830",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_27830_intent_14174"
+        },
+        "variables": [
+          {
+            "title": "The best way to contact us from {variable} is by calling our glo",
+            "variable": "step_271",
+            "data_type": "any"
+          },
+          {
+            "title": "The best way to contact us in {variable} is by emailing us at [*",
+            "variable": "step_505",
+            "data_type": "any"
+          },
+          {
+            "title": "The best way to contact us in {variable} is by calling **1-800-0",
+            "variable": "step_578",
+            "data_type": "any"
+          },
+          {
+            "title": "I can get you that information right away! Where are you based?",
+            "variable": "step_732",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "fallback",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_617",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "To manage racing thoughts and improve focus, try techniques like mindfulness meditation, journaling, and setting clear priorities. Reducing stress and getting adequate sleep can also be beneficial."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_617"
+          }
+        ],
+        "title": "How can I manage racing thoughts and improve my mental focus?",
+        "action": "action_14606",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_14606_intent_10778"
+        },
+        "variables": [
+          {
+            "title": "To manage racing thoughts and improve focus, try techniques like",
+            "variable": "step_617",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_35864",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_516",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Overcoming social anxiety and shyness involves gradual exposure to social situations, practicing relaxation techniques, and challenging negative thought patterns. Consider seeking the guidance of a therapist for specialized help."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_516"
+          }
+        ],
+        "title": "What strategies can help me overcome social anxiety and shyness?",
+        "action": "action_11601",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_11601_intent_4823"
+        },
+        "variables": [
+          {
+            "title": "Overcoming social anxiety and shyness involves gradual exposure ",
+            "variable": "step_516",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_14606",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      }
+    ],
+    "intents": [
+      {
+        "intent": "action_23980_intent_28809",
+        "examples": [
+          {
+            "text": "What do you enjoy doing?"
+          },
+          {
+            "text": "Got any hobbies?"
+          },
+          {
+            "text": "What do you do for fun"
+          },
+          {
+            "text": "What do you enjoy most"
+          },
+          {
+            "text": "Do you have a hobby?"
+          },
+          {
+            "text": "What hobbies do you have"
+          },
+          {
+            "text": "What do you like to do?"
+          },
+          {
+            "text": "Do you have any hobbies"
+          }
+        ]
+      },
+      {
+        "intent": "action_35864_intent_4458",
+        "examples": [
+          {
+            "text": "What should I do if I'm in crisis or having thoughts of self-harm?"
+          }
+        ]
+      },
+      {
+        "intent": "action_23571_intent_15681",
+        "examples": [
+          {
+            "text": "What is Mental Health?"
+          }
+        ]
+      },
+      {
+        "intent": "action_20969_intent_41712",
+        "examples": [
+          {
+            "text": "How can I manage my time and reduce feelings of overwhelm?"
+          }
+        ]
+      },
+      {
+        "intent": "action_17874_intent_9710",
+        "examples": [
+          {
+            "text": "I've been having trouble sleeping. What are some strategies for improving my sleep quality?"
+          }
+        ]
+      },
+      {
+        "intent": "action_29920_intent_9257",
+        "examples": [
+          {
+            "text": "What strategies can help me improve my communication and relationships?"
+          }
+        ]
+      },
+      {
+        "intent": "action_44976_intent_37166",
+        "examples": [
+          {
+            "text": "How can I manage stress and anxiety in my daily life?"
+          }
+        ]
+      },
+      {
+        "intent": "action_46319_intent_44328",
+        "examples": [
+          {
+            "text": "How can I build resilience and bounce back from setbacks in life?"
+          }
+        ]
+      },
+      {
+        "intent": "action_43710_intent_16485",
+        "examples": [
+          {
+            "text": "How can I support a friend or family member who is struggling with their mental health?"
+          }
+        ]
+      },
+      {
+        "intent": "action_6411_intent_34792",
+        "examples": [
+          {
+            "text": "What are some effective strategies for overcoming addiction or substance abuse?"
+          }
+        ]
+      },
+      {
+        "intent": "action_11601_intent_4823",
+        "examples": [
+          {
+            "text": "What strategies can help me overcome social anxiety and shyness?"
+          }
+        ]
+      },
+      {
+        "intent": "action_16969_intent_15566",
+        "examples": [
+          {
+            "text": "Hi"
+          }
+        ]
+      },
+      {
+        "intent": "action_42220_intent_38635",
+        "examples": [
+          {
+            "text": "How can I better manage my emotions during challenging situations?"
+          }
+        ]
+      },
+      {
+        "intent": "action_35863_intent_34686",
+        "examples": [
+          {
+            "text": "Can you recommend any mobile apps or resources for mental health support?"
+          }
+        ]
+      },
+      {
+        "intent": "action_49050_intent_27399",
+        "examples": [
+          {
+            "text": "How can I prioritize self-care in my busy life?"
+          }
+        ]
+      },
+      {
+        "intent": "action_3898_intent_14987",
+        "examples": [
+          {
+            "text": "What can I ask you to do?"
+          },
+          {
+            "text": "Can you please give me a list of the types of things you can help me with?"
+          },
+          {
+            "text": "Can you tell me what services you are able to help me with?"
+          },
+          {
+            "text": "Do you have a list of things I can talk to you about?"
+          },
+          {
+            "text": "Hi, what do you do?"
+          },
+          {
+            "text": "How can I use you?"
+          },
+          {
+            "text": "How can you help me"
+          },
+          {
+            "text": "How can you help me?"
+          },
+          {
+            "text": "How can you solve my problems?"
+          },
+          {
+            "text": "How do I use you?"
+          },
+          {
+            "text": "I'd like to know what type of questions you can answer for me."
+          },
+          {
+            "text": "I do not know what to ask"
+          },
+          {
+            "text": "Is there anything you can help me with?"
+          },
+          {
+            "text": "See what questions I can answer"
+          },
+          {
+            "text": "Tell me about what kind of things you do?"
+          },
+          {
+            "text": "Tell me something"
+          },
+          {
+            "text": "What are my options that you can help with?"
+          },
+          {
+            "text": "What are you able to deal with?"
+          },
+          {
+            "text": "What are you able to understand?"
+          },
+          {
+            "text": "What are you capable of?"
+          },
+          {
+            "text": "What are you good at?"
+          },
+          {
+            "text": "What are your skills?"
+          },
+          {
+            "text": "What are you used for?"
+          },
+          {
+            "text": "what can you do"
+          },
+          {
+            "text": "What can you do?"
+          },
+          {
+            "text": "What do you do?"
+          },
+          {
+            "text": "What do you handle?"
+          },
+          {
+            "text": "What else can you help me with?"
+          },
+          {
+            "text": "What features are in here?"
+          },
+          {
+            "text": "What is this 4?"
+          },
+          {
+            "text": "What kinds of things can you do?"
+          },
+          {
+            "text": "what questions can you answer"
+          }
+        ]
+      },
+      {
+        "intent": "action_27830_intent_14174",
+        "examples": [
+          {
+            "text": "Contact us"
+          },
+          {
+            "text": "How can I contact your business?"
+          },
+          {
+            "text": "Can you give me the number to the general manager?"
+          },
+          {
+            "text": "Can I text you a question?"
+          },
+          {
+            "text": "What's your contact information?"
+          },
+          {
+            "text": "Where can I reach the company personally?"
+          },
+          {
+            "text": "Which is the number of the main office here in los angeles?"
+          },
+          {
+            "text": "Who can I call?"
+          },
+          {
+            "text": "Can you please arrange for someone to call me!?"
+          },
+          {
+            "text": "Hi can you let me have the telephone number of my local store please?"
+          },
+          {
+            "text": "How do I best contact you when there has been a problem?"
+          },
+          {
+            "text": "Is there a phone number to your shop?"
+          },
+          {
+            "text": "I want to know number to the store closest to me"
+          },
+          {
+            "text": "Tell me the number to your general department"
+          },
+          {
+            "text": "What is the closest store's phone number?"
+          },
+          {
+            "text": "What number should I call to order new line of service?"
+          }
+        ]
+      },
+      {
+        "intent": "action_1205_intent_46423",
+        "examples": [
+          {
+            "text": "Reschedule an appointment"
+          },
+          {
+            "text": "Update my existing appointment"
+          },
+          {
+            "text": "Move my appointment to a different day"
+          },
+          {
+            "text": "Change my appointment"
+          },
+          {
+            "text": "Change my appt"
+          }
+        ]
+      },
+      {
+        "intent": "action_26942_intent_12400",
+        "examples": [
+          {
+            "text": "I think I might be experiencing symptoms of depression. What should I do?"
+          }
+        ]
+      },
+      {
+        "intent": "action_27479_intent_17486",
+        "examples": [
+          {
+            "text": "How can I set boundaries in my personal and professional life?"
+          }
+        ]
+      },
+      {
+        "intent": "action_1205_intent_22624",
+        "examples": [
+          {
+            "text": "Verify my appointment"
+          },
+          {
+            "text": "Appointment confirmation"
+          },
+          {
+            "text": "Confirm my appointment"
+          },
+          {
+            "text": "Confirm upcoming appointments"
+          },
+          {
+            "text": "I want to confirm my appointment"
+          }
+        ]
+      },
+      {
+        "intent": "fallback_connect_to_agent",
+        "examples": [
+          {
+            "text": "Can I connect to an agent?"
+          },
+          {
+            "text": "I would like to speak to someone"
+          },
+          {
+            "text": "I would like to speak to a human"
+          },
+          {
+            "text": "Agent help"
+          },
+          {
+            "text": "Call agent"
+          }
+        ],
+        "description": "Please transfer me to an agent"
+      },
+      {
+        "intent": "action_31687_intent_46596",
+        "examples": [
+          {
+            "text": "What causes mental illness?"
+          }
+        ]
+      },
+      {
+        "intent": "action_12594_intent_46632",
+        "examples": [
+          {
+            "text": "I've been feeling down lately. What can I do to improve my mood?"
+          }
+        ]
+      },
+      {
+        "intent": "action_42904_intent_22462",
+        "examples": [
+          {
+            "text": "How can I build self-esteem and self-confidence?"
+          }
+        ]
+      },
+      {
+        "intent": "action_36338_intent_10557",
+        "examples": [
+          {
+            "text": "Thank you very much"
+          },
+          {
+            "text": "Appreciate it"
+          },
+          {
+            "text": "Ok thanks"
+          },
+          {
+            "text": "Thanks"
+          },
+          {
+            "text": "Thanks a ton"
+          },
+          {
+            "text": "Thank you"
+          }
+        ]
+      },
+      {
+        "intent": "action_12260_intent_25552",
+        "examples": [
+          {
+            "text": "Why is mental health important for overall health?"
+          }
+        ]
+      },
+      {
+        "intent": "action_27804_intent_18035",
+        "examples": [
+          {
+            "text": "Get into my account"
+          },
+          {
+            "text": "Log in"
+          },
+          {
+            "text": "Access my account"
+          },
+          {
+            "text": "Authenticate me"
+          },
+          {
+            "text": "Sign in"
+          }
+        ]
+      },
+      {
+        "intent": "action_14606_intent_10778",
+        "examples": [
+          {
+            "text": "How can I manage racing thoughts and improve my mental focus?"
+          }
+        ]
+      },
+      {
+        "intent": "action_8347_intent_45059",
+        "examples": [
+          {
+            "text": "What are some coping strategies for dealing with loneliness?"
+          }
+        ]
+      },
+      {
+        "intent": "action_34498_intent_41109",
+        "examples": [
+          {
+            "text": "What are some mindfulness techniques I can practice for mental well-being?"
+          }
+        ]
+      }
+    ],
+    "entities": [
+      {
+        "entity": "entity_40009",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "No, I'd like to make a modification",
+            "synonyms": [
+              "nah",
+              "No",
+              "nope"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Yes, confirm this appointment",
+            "synonyms": [
+              "ya",
+              "yeah",
+              "Yes"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "sys-yes-no",
+        "values": []
+      },
+      {
+        "entity": "sys-currency",
+        "values": []
+      },
+      {
+        "entity": "entity_32539",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Email",
+            "patterns": [
+              "\\b(?:[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?|\\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[A-Za-z0-9-]*[A-Za-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])\\b"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "sys-date",
+        "values": []
+      },
+      {
+        "entity": "entity_19408",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "15 minutes",
+            "synonyms": [
+              "15mins",
+              "fifteen minutes"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "1 hour",
+            "synonyms": [
+              "1 hour",
+              "1hr",
+              "an hour",
+              "one hour"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "30 minutes",
+            "synonyms": [
+              "30mins",
+              "half an hour"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_49220",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Change this appointment",
+            "synonyms": [
+              "modification",
+              "Modify"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Cancel this appointment",
+            "synonyms": [
+              "Cancellation"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_25899",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Email",
+            "patterns": [
+              "\\b(?:[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?|\\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[A-Za-z0-9-]*[A-Za-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])\\b"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_34247",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "1 hour",
+            "synonyms": [
+              "1 hour",
+              "1hr",
+              "an hour",
+              "one hour"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "30 minutes",
+            "synonyms": [
+              "30mins",
+              "half an hour"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "15 minutes",
+            "synonyms": [
+              "15mins",
+              "fifteen minutes"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_43296",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Email",
+            "patterns": [
+              "\\b(?:[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?|\\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[A-Za-z0-9-]*[A-Za-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])\\b"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_27181",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "No, I'd like to make a modification",
+            "synonyms": [
+              "nah",
+              "No",
+              "nope"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Yes, confirm this appointment",
+            "synonyms": [
+              "ya",
+              "yeah",
+              "Yes"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_40206",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Cancel this appointment",
+            "synonyms": [
+              "Cancellation"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Change this appointment",
+            "synonyms": [
+              "modification",
+              "Modify"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_47509",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "15 minutes",
+            "synonyms": [
+              "15mins",
+              "fifteen minutes"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "30 minutes",
+            "synonyms": [
+              "30mins",
+              "half an hour"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "1 hour",
+            "synonyms": [
+              "1 hour",
+              "1hr",
+              "an hour",
+              "one hour"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "sys-number",
+        "values": []
+      },
+      {
+        "entity": "entity_32877",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Not quite",
+            "synonyms": [
+              "Nah",
+              "no",
+              "nope",
+              "not right",
+              "wrong"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Yes that's right",
+            "synonyms": [
+              "correct",
+              "precisely",
+              "ya",
+              "yep",
+              "Yes"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_42786",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Regular_expression",
+            "patterns": [
+              "\"^(?:.*[a-z])(?:.*[A-Z])(?:.*\\d)(?:.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$\""
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_19645",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Checking account",
+            "synonyms": [
+              "Checking"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Savings account",
+            "synonyms": [
+              "Savings"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_40103",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Email",
+            "patterns": [
+              "\\b(?:[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?|\\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[A-Za-z0-9-]*[A-Za-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])\\b"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_21381",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Regular_expression",
+            "patterns": [
+              "\"^(?:.*[a-z])(?:.*[A-Z])(?:.*\\d)(?:.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$\""
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_1793",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Email",
+            "patterns": [
+              "\\b(?:[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?|\\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[A-Za-z0-9-]*[A-Za-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])\\b"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_19289",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Change this appointment",
+            "synonyms": [
+              "modification",
+              "Modify"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Cancel this appointment",
+            "synonyms": [
+              "Cancellation"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_36830",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Email",
+            "patterns": [
+              "\\b(?:[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?|\\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[A-Za-z0-9-]*[A-Za-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])\\b"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_8436",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Email",
+            "patterns": [
+              "\\b(?:[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?|\\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[A-Za-z0-9-]*[A-Za-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])\\b"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_15134",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Regular_expression",
+            "patterns": [
+              "^\\d{4}$"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_12976",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Regular_expression",
+            "patterns": [
+              "\"^(?:.*[a-z])(?:.*[A-Z])(?:.*\\d)(?:.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$\""
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_42049",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Regular_expression",
+            "patterns": [
+              "\"^(?:.*[a-z])(?:.*[A-Z])(?:.*\\d)(?:.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$\""
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_2263",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Yes that's right",
+            "synonyms": [
+              "correct",
+              "precisely",
+              "ya",
+              "yep",
+              "Yes"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Not quite",
+            "synonyms": [
+              "Nah",
+              "no",
+              "nope",
+              "not right",
+              "wrong"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_18170",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "The street I grew up on",
+            "synonyms": [
+              "street name",
+              "streets"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "The first concert I went to",
+            "synonyms": [
+              "concert",
+              "my first show"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "My mother's maiden name",
+            "synonyms": [
+              "maiden name",
+              "mother's name"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "profane_words",
+        "values": [],
+        "fuzzy_match": false
+      },
+      {
+        "entity": "danger_words",
+        "values": [],
+        "fuzzy_match": false
+      },
+      {
+        "entity": "entity_12835",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Africa",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "North America",
+            "synonyms": [
+              "CA",
+              "Canada",
+              "Mexico",
+              "United States",
+              "USA"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Europe",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Australia",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Asia",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "South America",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_36543",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "No, I'd like to make a modification",
+            "synonyms": [
+              "nah",
+              "No",
+              "nope"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Yes, confirm this appointment",
+            "synonyms": [
+              "ya",
+              "yeah",
+              "Yes"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_19764",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "1 hour",
+            "synonyms": [
+              "1 hour",
+              "1hr",
+              "an hour",
+              "one hour"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "15 minutes",
+            "synonyms": [
+              "15mins",
+              "fifteen minutes"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "30 minutes",
+            "synonyms": [
+              "30mins",
+              "half an hour"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_45277",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Email",
+            "patterns": [
+              "\\b(?:[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?|\\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[A-Za-z0-9-]*[A-Za-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])\\b"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_41617",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Yes that's right",
+            "synonyms": [
+              "correct",
+              "precisely",
+              "ya",
+              "yep",
+              "Yes"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Not quite",
+            "synonyms": [
+              "Nah",
+              "no",
+              "nope",
+              "not right",
+              "wrong"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_1882",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Email",
+            "patterns": [
+              "\\b(?:[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?|\\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[A-Za-z0-9-]*[A-Za-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])\\b"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "sys-percentage",
+        "values": []
+      },
+      {
+        "entity": "entity_22093",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Email",
+            "patterns": [
+              "\\b(?:[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?|\\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[A-Za-z0-9-]*[A-Za-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])\\b"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_22816",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Regular_expression",
+            "patterns": [
+              "\"^(?:.*[a-z])(?:.*[A-Z])(?:.*\\d)(?:.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$\""
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_21793",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Not quite",
+            "synonyms": [
+              "Nah",
+              "no",
+              "nope",
+              "not right",
+              "wrong"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Yes that's right",
+            "synonyms": [
+              "correct",
+              "precisely",
+              "ya",
+              "yep",
+              "Yes"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_17250",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Regular_expression",
+            "patterns": [
+              "\"^(?:.*[a-z])(?:.*[A-Z])(?:.*\\d)(?:.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$\""
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "sys-time",
+        "values": []
+      },
+      {
+        "entity": "entity_36294",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Regular_expression",
+            "patterns": [
+              "\"^(?:.*[a-z])(?:.*[A-Z])(?:.*\\d)(?:.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$\""
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      }
+    ],
+    "metadata": {
+      "api_version": {
+        "major_version": "v2",
+        "minor_version": "2018-11-08"
+      },
+      "skill": {
+        "counts": {
+          "actions": 34,
+          "intents": 31,
+          "entities": 43,
+          "data_types": 0,
+          "collections": 0,
+          "global_variables": 0
+        }
+      }
+    },
+    "variables": [],
+    "data_types": [],
+    "collections": [],
+    "counterexamples": [],
+    "system_settings": {
+      "variable": {
+        "format": {
+          "time": {
+            "pattern": "short"
+          },
+          "currency": {
+            "fraction_digits": 2
+          }
+        }
+      },
+      "off_topic": {
+        "enabled": true
+      },
+      "auto_learn": {
+        "apply": true
+      },
+      "topic_switch": {
+        "enabled": true,
+        "messages": {
+          "enable_confirmation": true,
+          "confirmation_failure": {
+            "generic": [
+              {
+                "values": [
+                  {
+                    "text_expression": {
+                      "concat": [
+                        {
+                          "scalar": "I'm sorry, I did not catch that, please confirm."
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "response_type": "text",
+                "selection_policy": "sequential"
+              }
+            ]
+          },
+          "confirmation_request": {
+            "generic": [
+              {
+                "values": [
+                  {
+                    "text_expression": {
+                      "concat": [
+                        {
+                          "scalar": "Do you want to continue with the previous topic: "
+                        },
+                        {
+                          "system_variable": "digressed_from"
+                        },
+                        {
+                          "scalar": "?"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "response_type": "text",
+                "selection_policy": "sequential"
+              },
+              {
+                "options": [
+                  {
+                    "label": "Yes",
+                    "value": {
+                      "input": {
+                        "text": "Yes"
+                      }
+                    }
+                  },
+                  {
+                    "label": "No",
+                    "value": {
+                      "input": {
+                        "text": "No"
+                      }
+                    }
+                  }
+                ],
+                "response_type": "option",
+                "repeat_on_reprompt": true
+              }
+            ]
+          }
+        },
+        "max_tries": 3
+      },
+      "disambiguation": {
+        "prompt": "Did you mean:",
+        "enabled": true,
+        "randomize": true,
+        "max_suggestions": 5,
+        "suggestion_text_policy": "title",
+        "none_of_the_above_prompt": "None of the above",
+        "use_connect_to_support_prompt": "Connect to support",
+        "single_answer_clarification_prompt": "Something else"
+      },
+      "spelling_auto_correct": true
+    },
+    "learning_opt_out": false,
+    "language": "en"
+  },
+  "description": "created for assistant 427ad5aa-e5c3-478a-b978-cd121678c50d",
+  "dialog_settings": {
+    "source_assistant": "c36d84e7-5fc9-473c-9135-b07d20c32ce7"
+  },
+  "created": "2023-09-04T14:22:12.798Z",
+  "updated": "2023-09-04T14:22:12.798Z",
+  "snapshot": "1",
+  "assistant_id": "427ad5aa-e5c3-478a-b978-cd121678c50d",
+  "assistant_references": [
+    {
+      "name": "Medical Bot",
+      "assistant_id": "c36d84e7-5fc9-473c-9135-b07d20c32ce7",
+      "skill_reference": "actions skill"
+    }
+  ]
+}
